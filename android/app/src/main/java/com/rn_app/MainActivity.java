@@ -1,4 +1,4 @@
-package com.TODO;
+package com.rn_app;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "TODO";
+        return "rn_app";
     }
 }

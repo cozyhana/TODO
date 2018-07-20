@@ -1,4 +1,4 @@
-package com.TODO;
+package com.rn_app;
 
 import android.app.Application;
 
