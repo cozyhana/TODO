@@ -2,11 +2,13 @@ import React from 'react';
 import { Text, View, Button } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import { Login, Home, Content, About } from './src/page/index';
-import AddressBooks2 from './src/static/svg/AddressBooks2.js';
-import IdentityCheck from './src/static/svg/IdentityCheck.js';
-import Bms from './src/static/svg/Bms.js';
-// import { AddressBooks2, IdentityCheck, Bms } from './src/static/svg/index'
+import { Login, Home, Chat, Content, About } from './src/page/index';
+
+//下方图标
+import AddressBooks2 from './src/static/svg/AddressBooks2';
+import IdentityCheck from './src/static/svg/IdentityCheck';
+import Bms from './src/static/svg/Bms';
+import Editor from './src/static/svg/Editor';
 
 const TabNavigator = createBottomTabNavigator({
   // '计划': WeekPlan,
@@ -14,6 +16,12 @@ const TabNavigator = createBottomTabNavigator({
     screen: Home,
     navigationOptions: {
       tabBarLabel: '首页'
+    }
+  },
+  'Chat': {
+    screen: Chat,
+    navigationOptions: {
+      tabBarLabel: '聊天'
     }
   },
   'Content': {
@@ -41,6 +49,9 @@ const TabNavigator = createBottomTabNavigator({
         switch (routeName) {
           case 'Home':
             iconName = <IdentityCheck {...iconStyle} />
+            break;
+          case 'Chat':
+            iconName = <Editor {...iconStyle} />
             break;
           case 'Content':
             iconName = <AddressBooks2 {...iconStyle} />
