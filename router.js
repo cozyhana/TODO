@@ -3,7 +3,8 @@ import { Text, View, Button } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import { Login, Home, Chat, Content, About } from './src/page/index';
-
+//全局颜色
+import color from './src/base/color'
 //下方图标
 import AddressBooks2 from './src/static/svg/AddressBooks2';
 import IdentityCheck from './src/static/svg/IdentityCheck';
@@ -40,8 +41,8 @@ const TabNavigator = createBottomTabNavigator({
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const iconStyle = {
-          width: 30,
-          height: 30,
+          width: 32,
+          height: 32,
           fill: tintColor
         }
         const { routeName } = navigation.state;
@@ -66,8 +67,8 @@ const TabNavigator = createBottomTabNavigator({
       }
     }),
     tabBarOptions: {
-      activeTintColor: '#ffbd00', // 活动选项卡的标签和图标颜色。
-      inactiveTintColor: '#a3a6a4', //"非活动" 选项卡的标签和图标颜色。
+      activeTintColor: color.active, // 活动选项卡的标签和图标颜色。
+      inactiveTintColor: color.gray, //"非活动" 选项卡的标签和图标颜色。
       showLabel: true,
       lazy: true,
       backBehavior: true, // 按返回键是否跳转到第一个tab页面
