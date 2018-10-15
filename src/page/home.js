@@ -7,6 +7,7 @@ export class Home extends React.Component {
     let b = 2;
     let c
     c = a + b;
+
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         {/* other code from before here */}
