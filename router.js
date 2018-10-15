@@ -92,6 +92,7 @@ const AppNavigator = createStackNavigator(
     // initialRouteName: 'Home',
     /* The header config from HomeScreen is now here */
     navigationOptions: {
+      headerTitle: '页面',
       headerStyle: {
         backgroundColor: color.active
       },

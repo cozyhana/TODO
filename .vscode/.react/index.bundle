@@ -61506,12 +61506,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     }
   }, {
     navigationOptions: {
+      headerTitle: '页面',
       headerStyle: {
         backgroundColor: _color2.default.active
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'center'
       }
     }
   });
@@ -80147,7 +80149,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     return Chat;
   }(_react3.default.Component), _class.navigationOptions = function () {
     return {
-      title: '返回',
+      headerTitle: '返回',
       headerTintColor: 'black',
       headerStyle: {
         backgroundColor: 'red'
@@ -80169,9 +80171,11 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _index2 = _interopRequireDefault(_index);
 
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\webScene.js";
-
   var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _class,
+      _temp,
+      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\webScene.js";
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
 
@@ -80202,7 +80206,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     };
   }
 
-  var WebScene = exports.WebScene = _wrapComponent("WebScene")(function (_Component) {
+  var WebScene = exports.WebScene = _wrapComponent("WebScene")((_temp = _class = function (_Component) {
     _inherits(WebScene, _Component);
 
     function WebScene() {
@@ -80237,7 +80241,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     }]);
 
     return WebScene;
-  }(_react2.Component));
+  }(_react2.Component), _class.navigationOptions = function (navigation, navigationOptions) {
+    return {
+      headerTintColor: 'black',
+      headerStyle: {
+        backgroundColor: '#f5f5f5'
+      }
+    };
+  }, _temp));
 },616,[118,179,12],"src\\page\\webScene.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {

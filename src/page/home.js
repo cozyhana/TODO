@@ -5,13 +5,13 @@ export class Home extends React.Component {
 
   static navigationOptions = (navigation, navigationOptions) => {
     console.log(navigation)
-    return ({
+    return {
       headerTitle: '首页',
       headerTintColor: 'black',
       headerStyle: {
         backgroundColor: '#f5f5f5'
       }
-    })
+    }
   }
 
   render() {
