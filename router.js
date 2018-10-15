@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Button } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import { Login, Home, Chat, Content, About } from './src/page/index';
+import { Login, Home, Chat, Content, About, WebScene } from './src/page/index';
 //全局颜色
 import color from './src/base/color'
 //下方图标
@@ -11,33 +11,34 @@ import IdentityCheck from './src/static/svg/IdentityCheck';
 import Bms from './src/static/svg/Bms';
 import Editor from './src/static/svg/Editor';
 
-const TabNavigator = createBottomTabNavigator({
-  // '计划': WeekPlan,
-  'Home': {
-    screen: Home,
-    navigationOptions: {
-      tabBarLabel: '首页'
+const TabNavigator = createBottomTabNavigator(
+  {
+    'Home': {
+      screen: Home,
+      navigationOptions: {
+        tabBarLabel: '首页',
+      }
+    },
+    'Chat': {
+      screen: Chat,
+      navigationOptions: {
+        tabBarLabel: '聊天'
+      }
+    },
+    'Content': {
+      screen: Content,
+      navigationOptions: {
+        tabBarLabel: '内容'
+      }
+    },
+    'About': {
+      screen: About,
+      navigationOptions: {
+        tabBarLabel: '关于'
+      }
     }
   },
-  'Chat': {
-    screen: Chat,
-    navigationOptions: {
-      tabBarLabel: '聊天'
-    }
-  },
-  'Content': {
-    screen: Content,
-    navigationOptions: {
-      tabBarLabel: '内容'
-    }
-  },
-  'About': {
-    screen: About,
-    navigationOptions: {
-      tabBarLabel: '关于'
-    }
-  }
-}, {
+  {
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const iconStyle = {
@@ -77,18 +78,29 @@ const TabNavigator = createBottomTabNavigator({
         fontSize: 10,
       }
     }
-  })
+  }
+)
 
 const AppNavigator = createStackNavigator(
   {
-    // 登录
-    Login: { screen: Login },
+    // 首页
+    // Home: { screen: Home }, 
     // NoData: { screen: NoData },
-
-    TabNavigator: { screen: TabNavigator }
+    TabNavigator: { screen: TabNavigator },
+    WebScene: { screen: WebScene }
   }, {
-    initialRouteName: 'Login',
-    headerMode: 'none',
-  });
+    // initialRouteName: 'Home',
+    /* The header config from HomeScreen is now here */
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: color.active
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    },
+  }
+);
 
 export default AppNavigator

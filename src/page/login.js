@@ -2,6 +2,10 @@ import React from 'react';
 import { Text, View, Button } from 'react-native';
 
 export class Login extends React.Component {
+  static navigationOptions = () => ({
+    headerTintColor: 'black',
+    title: '登录'
+  })
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>

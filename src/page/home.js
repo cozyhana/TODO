@@ -1,19 +1,26 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, TouchableOpacity } from 'react-native';
+
 export class Home extends React.Component {
+
+  static navigationOptions = (navigation, navigationOptions) => {
+    console.log(navigation)
+    return ({
+      headerTitle: '首页',
+      headerTintColor: 'black',
+      headerStyle: {
+        backgroundColor: '#f5f5f5'
+      }
+    })
+  }
+
   render() {
-    console.log('hf');
-    let a = 1;
-    let b = 2;
-    let c
-    c = a + b;
 
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        {/* other code from before here */}
         <Button
-          title="首页??!!"
-          onPress={() => this.props.navigation.navigate('Details')}
+          title="首页"
+          onPress={() => this.props.navigation.navigate('WebScene')}
         />
       </View>
     );
