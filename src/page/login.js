@@ -4,7 +4,7 @@ import { Text, View, Button } from 'react-native';
 export class Login extends React.Component {
   static navigationOptions = () => ({
     headerTintColor: 'black',
-    title: '登录'
+    headerTitle: '登录1'
   })
   render() {
     return (

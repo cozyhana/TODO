@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 
 export class WebScene extends Component {
+
   static navigationOptions = (navigation, navigationOptions) => {
     return ({
       headerTintColor: 'black',

@@ -84,15 +84,15 @@ const TabNavigator = createBottomTabNavigator(
 const AppNavigator = createStackNavigator(
   {
     // 首页
-    // Home: { screen: Home }, 
+    Login: { screen: Login },
     // NoData: { screen: NoData },
     TabNavigator: { screen: TabNavigator },
     WebScene: { screen: WebScene }
   }, {
-    // initialRouteName: 'Home',
+    initialRouteName: 'Login',
     /* The header config from HomeScreen is now here */
     navigationOptions: {
-      headerTitle: '页面',
+      // headerTitle: '页面1',
       headerStyle: {
         backgroundColor: color.active
       },
@@ -105,3 +105,4 @@ const AppNavigator = createStackNavigator(
 );
 
 export default AppNavigator
+

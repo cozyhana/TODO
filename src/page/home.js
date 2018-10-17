@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, Button, TouchableOpacity } from 'react-native';
 
-export class Home extends React.Component {
+export class Home extends Component {
 
   static navigationOptions = (navigation, navigationOptions) => {
-    console.log(navigation)
     return {
       headerTitle: '首页',
       headerTintColor: 'black',
@@ -15,7 +14,6 @@ export class Home extends React.Component {
   }
 
   render() {
-
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Button
