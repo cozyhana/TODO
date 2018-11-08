@@ -62,8 +62,6 @@ const TabNavigator = createBottomTabNavigator(
             iconName = <Bms {...iconStyle} />
             break;
         }
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
         return iconName
       }
     }),
