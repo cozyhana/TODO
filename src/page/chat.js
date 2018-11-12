@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, StyleSheet } from 'react-native';
+import { createDrawerNavigator } from 'react-navigation';
+import Gobackto from './../static/svg/Gobackto'
 export class Chat extends React.Component {
   static navigationOptions = () => ({
     headerTitle: '返回',
@@ -14,10 +16,12 @@ export class Chat extends React.Component {
         {/* other code from before here */}
         <Button
           title="一起聊天吧"
-          onPress={() => this.props.navigation.navigate('About')}
+          onPress={() => this.props.navigation.navigate('Home')}
         />
         <TextInput />
       </View>
     );
   }
 }
+
+

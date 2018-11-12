@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
 
 import { Login, Home, Chat, Content, About, WebScene } from './src/page/index';
 //全局颜色
@@ -63,7 +63,7 @@ const TabNavigator = createBottomTabNavigator(
             break;
         }
         return iconName
-      }
+      },
     }),
     tabBarOptions: {
       activeTintColor: color.active, // 活动选项卡的标签和图标颜色。
@@ -82,23 +82,16 @@ const TabNavigator = createBottomTabNavigator(
 const AppNavigator = createStackNavigator(
   {
     // 首页
-    Login: { screen: Login },
+    // Login: { screen: Login },
     // NoData: { screen: NoData },
     TabNavigator: { screen: TabNavigator },
-    WebScene: { screen: WebScene }
+    WebScene: { screen: WebScene },
   }, {
-    initialRouteName: 'Login',
+    // initialRouteName: 'TabNavigator',
     /* The header config from HomeScreen is now here */
-    navigationOptions: {
-      // headerTitle: '页面1',
-      headerStyle: {
-        backgroundColor: color.active
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    },
+    // navigationOptions: {}
+    mode: 'modal',
+    headerMode: 'none',
   }
 );
 

@@ -7,7 +7,7 @@ export class Content extends React.Component {
         {/* other code from before here */}
         <Button
           title="Content"
-          onPress={() => this.props.navigation.navigate('Details')}
+          onPress={() => this.props.navigation.navigate('WebScene')}
         />
       </View>
     );

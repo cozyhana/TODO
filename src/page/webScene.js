@@ -1,21 +1,62 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View, Button, StyleSheet } from 'react-native'
+import { createDrawerNavigator } from 'react-navigation';
+import Gobackto from './../static/svg/Gobackto'
 
-export class WebScene extends Component {
+class MyHomeScreen extends React.Component {
+  static navigationOptions = {
+    title: '返回',
+    drawerLabel: 'Home',
+    drawerIcon: ({ tintColor }) => (
+      <Gobackto />
+    ),
+  };
 
-  static navigationOptions = (navigation, navigationOptions) => {
-    return ({
-      headerTintColor: 'black',
-      headerStyle: {
-        backgroundColor: '#f5f5f5'
-      }
-    })
-  }
   render() {
+    let { navigation } = this.props
+    console.log(navigation)
     return (
       <View>
-        <Text> textInComponent </Text>
+        <Button
+          onPress={() => navigation.openDrawer()}
+          title="Go to notifications"
+        />
+
       </View>
-    )
+    );
   }
 }
+
+class MyNotificationsScreen extends React.Component {
+  static navigationOptions = {
+    drawerLabel: 'Notifications',
+    drawerIcon: ({ tintColor }) => (
+      <Gobackto />
+    ),
+  };
+
+  render() {
+    return (
+      <Button
+        onPress={() => this.props.navigation.closeDrawer()}
+        title="Go back home"
+      />
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 24,
+    height: 24,
+  },
+});
+
+export const WebScene = createDrawerNavigator({
+  Home: {
+    screen: MyHomeScreen,
+  },
+  Notifications: {
+    screen: MyNotificationsScreen,
+  },
+});
