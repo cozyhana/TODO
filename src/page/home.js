@@ -25,3 +25,5 @@ export class Home extends Component {
   }
 }
 
+rcc
+const drawer = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig)

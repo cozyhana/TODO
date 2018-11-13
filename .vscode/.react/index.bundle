@@ -61411,7 +61411,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     'Home': {
       screen: _index.Home,
       navigationOptions: {
-        tabBarLabel: '首页'
+        tabBarLabel: '首页',
+        title: '12'
       }
     },
     'Chat': {
@@ -61452,7 +61453,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_IdentityCheck2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 53
+                  lineNumber: 54
                 }
               }));
               break;
@@ -61461,7 +61462,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_Editor2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 56
+                  lineNumber: 57
                 }
               }));
               break;
@@ -61470,7 +61471,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_AddressBooks2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 59
+                  lineNumber: 60
                 }
               }));
               break;
@@ -61479,7 +61480,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_Bms2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 62
+                  lineNumber: 63
                 }
               }));
               break;
@@ -61509,8 +61510,69 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       screen: _index.WebScene
     }
   }, {
-    mode: 'modal',
-    headerMode: 'none'
+    navigationOptions: function navigationOptions(_ref3) {
+      var navigation = _ref3.navigation;
+      var routeName = void 0;
+      console.log(navigation);
+      var states = navigation.state;
+
+      if (states.routes) {
+        var index = states.index,
+            routes = states.routes;
+        routeName = routes[index].routeName;
+      }
+
+      var iconName = null;
+
+      switch (routeName) {
+        case 'Home':
+          iconName = _react2.default.createElement(_index.Home, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 103
+            }
+          });
+          break;
+
+        case 'Chat':
+          iconName = _react2.default.createElement(_index.Chat, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 106
+            }
+          });
+          break;
+
+        case 'Content':
+          iconName = _react2.default.createElement(_index.Content, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 109
+            }
+          });
+          break;
+
+        case 'About':
+          iconName = _react2.default.createElement(_index.About, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 112
+            }
+          });
+          break;
+      }
+
+      return {
+        headerTitle: iconName,
+        headerStyle: {
+          backgroundColor: '#f4511e'
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        }
+      };
+    }
   });
   exports.default = AppNavigator;
 },492,[118,12,493,611,691,692,693,694,695],"router.js");
@@ -80117,298 +80179,14 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.Content = undefined;
-
-  var _react2 = _require(_dependencyMap[0], "react");
-
-  var _react3 = _interopRequireDefault(_react2);
-
-  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
-
-  var _index2 = _interopRequireDefault(_index);
-
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\content.js";
-
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  var _reactNative = _require(_dependencyMap[2], "react-native");
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-  var _components = {
-    Content: {
-      displayName: "Content"
-    }
+  exports.default = {
+    primary: '#06c1ae',
+    active: '#06c1ae',
+    border: '#E0E0E0',
+    paper: '#f3f3f3',
+    gray: '#979797'
   };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-    filename: "e:/Test/TODO/todo/src/page/content.js",
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var Content = exports.Content = _wrapComponent("Content")(function (_React$Component) {
-    _inherits(Content, _React$Component);
-
-    function Content() {
-      _classCallCheck(this, Content);
-
-      return _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).apply(this, arguments));
-    }
-
-    _createClass(Content, [{
-      key: "render",
-      value: function render() {
-        var _this2 = this;
-
-        return _react3.default.createElement(
-          _reactNative.View,
-          {
-            style: {
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center'
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 6
-            }
-          },
-          _react3.default.createElement(_reactNative.Button, {
-            title: "Content",
-            onPress: function onPress() {
-              return _this2.props.navigation.navigate('WebScene');
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            }
-          })
-        );
-      }
-    }]);
-
-    return Content;
-  }(_react3.default.Component));
-},614,[118,179,12],"src\\page\\content.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.About = undefined;
-
-  var _react2 = _require(_dependencyMap[0], "react");
-
-  var _react3 = _interopRequireDefault(_react2);
-
-  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
-
-  var _index2 = _interopRequireDefault(_index);
-
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\about.js";
-
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  var _reactNative = _require(_dependencyMap[2], "react-native");
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-  var _components = {
-    About: {
-      displayName: "About"
-    }
-  };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-    filename: "e:/Test/TODO/todo/src/page/about.js",
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var About = exports.About = _wrapComponent("About")(function (_React$Component) {
-    _inherits(About, _React$Component);
-
-    function About() {
-      _classCallCheck(this, About);
-
-      return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
-    }
-
-    _createClass(About, [{
-      key: "render",
-      value: function render() {
-        var _this2 = this;
-
-        return _react3.default.createElement(
-          _reactNative.View,
-          {
-            style: {
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#111'
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 6
-            }
-          },
-          _react3.default.createElement(_reactNative.Button, {
-            title: "About",
-            onPress: function onPress() {
-              return _this2.props.navigation.navigate('Details');
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 8
-            }
-          })
-        );
-      }
-    }]);
-
-    return About;
-  }(_react3.default.Component));
-},615,[118,179,12],"src\\page\\about.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.Chat = undefined;
-
-  var _react2 = _require(_dependencyMap[0], "react");
-
-  var _react3 = _interopRequireDefault(_react2);
-
-  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
-
-  var _index2 = _interopRequireDefault(_index);
-
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  var _class,
-      _temp,
-      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\chat.js";
-
-  var _reactNative = _require(_dependencyMap[2], "react-native");
-
-  var _reactNavigation = _require(_dependencyMap[3], "react-navigation");
-
-  var _Gobackto = _require(_dependencyMap[4], "./../static/svg/Gobackto");
-
-  var _Gobackto2 = _interopRequireDefault(_Gobackto);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-  var _components = {
-    Chat: {
-      displayName: "Chat"
-    }
-  };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-    filename: "e:/Test/TODO/todo/src/page/chat.js",
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var Chat = exports.Chat = _wrapComponent("Chat")((_temp = _class = function (_React$Component) {
-    _inherits(Chat, _React$Component);
-
-    function Chat() {
-      _classCallCheck(this, Chat);
-
-      return _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).apply(this, arguments));
-    }
-
-    _createClass(Chat, [{
-      key: "render",
-      value: function render() {
-        var _this2 = this;
-
-        return _react3.default.createElement(
-          _reactNative.View,
-          {
-            style: {
-              flex: 1,
-              justifyContent: 'center',
-              alignItems: 'center'
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 15
-            }
-          },
-          _react3.default.createElement(_reactNative.Button, {
-            title: "\u4E00\u8D77\u804A\u5929\u5427",
-            onPress: function onPress() {
-              return _this2.props.navigation.navigate('Home');
-            },
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 17
-            }
-          }),
-          _react3.default.createElement(_reactNative.TextInput, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
-            }
-          })
-        );
-      }
-    }]);
-
-    return Chat;
-  }(_react3.default.Component), _class.navigationOptions = function () {
-    return {
-      headerTitle: '返回',
-      headerTintColor: 'black',
-      headerStyle: {
-        backgroundColor: 'red'
-      }
-    };
-  }, _temp));
-},616,[118,179,12,493,617],"src\\page\\chat.js");
+},691,[],"src\\base\\color.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -80416,7 +80194,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\Gobackto.js";
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\AddressBooks2.js";
 
   var _react = _require(_dependencyMap[0], "react");
 
@@ -80428,51 +80206,34 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  var Gobackto = function Gobackto(props) {
+  var AddressBooks2 = function AddressBooks2(props) {
     return _react2.default.createElement(
       _reactNativeSvg2.default,
-      _extends({
-        width: 32,
-        height: 32
-      }, props, {
+      _extends({}, props, {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 4
         }
       }),
-      _react2.default.createElement(_reactNativeSvg.Path, {
-        d: "M8.089 30.015H20V32H8.089z",
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M15.962 9.745c-2.545-.073-4.655 2.036-4.727 4.582a4.581 4.581 0 0 0 4.436 4.582c2.545.073 4.655-1.891 4.727-4.436s-1.891-4.582-4.436-4.727z",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 5
         }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, {
-        d: "M18.015 8.179V6.194c7.146 0 13.896 5.757 13.896 12.903S26.154 32 19.008 32v-1.985c5.955 0 10.918-4.963 10.918-10.918S23.971 8.179 18.015 8.179zm0-1.985c7.146 0 13.896 5.757 13.896 12.903S26.154 32 19.008 32v-1.985c5.955 0 10.918-4.963 10.918-10.918S23.971 8.179 18.015 8.179V6.194zm-15.881 0h15.881v1.985H2.134z",
+      })),
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M27.308 0h-.364H5.053a3.797 3.797 0 0 0-3.636 3.636v5.091h2.618c1.309 0 1.309 2.182 0 2.182H1.49v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v5.818c-.073 1.891 1.382 3.564 3.345 3.636h22.109c2.4 0 3.636-1.309 3.636-3.636V3.636C30.653 1.745 29.198.145 27.307 0zm-5.382 24.073L21.853 24c-1.236-1.964-3.345-3.127-5.673-3.2h-.509c-2.327.073-4.436 1.236-5.673 3.2l-.073.145H7.961l.145-.291c.436-1.018 1.091-1.818 1.964-2.545.727-.582 1.527-1.164 2.4-1.527a5.857 5.857 0 0 1-2.109-2.109c-.582-1.018-.945-2.109-.945-3.273a6.737 6.737 0 0 1 6.473-6.473c3.709-.145 6.764 2.764 6.909 6.473 0 1.164-.291 2.327-.945 3.273-.509.873-1.236 1.527-2.109 2.109.873.364 1.673.945 2.4 1.527.8.727 1.455 1.527 1.964 2.545l.145.291h-2.327z",
         __source: {
           fileName: _jsxFileName,
           lineNumber: 6
         }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, {
-        d: "M1.493 5.711l7.019 7.019-1.405 1.403L.09 7.114z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7
-        }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, {
-        d: "M8.532 1.401L1.513 8.416.11 7.015 7.127 0z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 8
-        }
-      })
+      }))
     );
   };
 
-  exports.default = Gobackto;
-},617,[118,618],"src\\static\\svg\\Gobackto.js");
+  exports.default = AddressBooks2;
+},692,[118,618],"src\\static\\svg\\AddressBooks2.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -100989,233 +100750,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.WebScene = undefined;
-
-  var _react2 = _require(_dependencyMap[0], "react");
-
-  var _react3 = _interopRequireDefault(_react2);
-
-  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
-
-  var _index2 = _interopRequireDefault(_index);
-
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  var _class,
-      _temp,
-      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\webScene.js",
-      _class2,
-      _temp2;
-
-  var _reactNative = _require(_dependencyMap[2], "react-native");
-
-  var _reactNavigation = _require(_dependencyMap[3], "react-navigation");
-
-  var _Gobackto = _require(_dependencyMap[4], "./../static/svg/Gobackto");
-
-  var _Gobackto2 = _interopRequireDefault(_Gobackto);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-  var _components = {
-    MyHomeScreen: {
-      displayName: "MyHomeScreen"
-    },
-    MyNotificationsScreen: {
-      displayName: "MyNotificationsScreen"
-    }
-  };
-
-  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
-    filename: "e:/Test/TODO/todo/src/page/webScene.js",
-    components: _components,
-    locals: [module],
-    imports: [_react3.default]
-  });
-
-  function _wrapComponent(id) {
-    return function (Component) {
-      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
-    };
-  }
-
-  var MyHomeScreen = _wrapComponent("MyHomeScreen")((_temp = _class = function (_React$Component) {
-    _inherits(MyHomeScreen, _React$Component);
-
-    function MyHomeScreen() {
-      _classCallCheck(this, MyHomeScreen);
-
-      return _possibleConstructorReturn(this, (MyHomeScreen.__proto__ || Object.getPrototypeOf(MyHomeScreen)).apply(this, arguments));
-    }
-
-    _createClass(MyHomeScreen, [{
-      key: "render",
-      value: function render() {
-        var navigation = this.props.navigation;
-        console.log(navigation);
-        return _react3.default.createElement(
-          _reactNative.View,
-          {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 19
-            }
-          },
-          _react3.default.createElement(_reactNative.Button, {
-            onPress: function onPress() {
-              return navigation.openDrawer();
-            },
-            title: "Go to notifications",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 20
-            }
-          })
-        );
-      }
-    }]);
-
-    return MyHomeScreen;
-  }(_react3.default.Component), _class.navigationOptions = {
-    title: '返回',
-    drawerLabel: 'Home',
-    drawerIcon: function drawerIcon(_ref) {
-      var tintColor = _ref.tintColor;
-      return _react3.default.createElement(_Gobackto2.default, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 11
-        }
-      });
-    }
-  }, _temp));
-
-  var MyNotificationsScreen = _wrapComponent("MyNotificationsScreen")((_temp2 = _class2 = function (_React$Component2) {
-    _inherits(MyNotificationsScreen, _React$Component2);
-
-    function MyNotificationsScreen() {
-      _classCallCheck(this, MyNotificationsScreen);
-
-      return _possibleConstructorReturn(this, (MyNotificationsScreen.__proto__ || Object.getPrototypeOf(MyNotificationsScreen)).apply(this, arguments));
-    }
-
-    _createClass(MyNotificationsScreen, [{
-      key: "render",
-      value: function render() {
-        var _this3 = this;
-
-        return _react3.default.createElement(_reactNative.Button, {
-          onPress: function onPress() {
-            return _this3.props.navigation.closeDrawer();
-          },
-          title: "Go back home",
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 40
-          }
-        });
-      }
-    }]);
-
-    return MyNotificationsScreen;
-  }(_react3.default.Component), _class2.navigationOptions = {
-    drawerLabel: 'Notifications',
-    drawerIcon: function drawerIcon(_ref2) {
-      var tintColor = _ref2.tintColor;
-      return _react3.default.createElement(_Gobackto2.default, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 34
-        }
-      });
-    }
-  }, _temp2));
-
-  var styles = _reactNative.StyleSheet.create({
-    icon: {
-      width: 24,
-      height: 24
-    }
-  });
-
-  var WebScene = exports.WebScene = (0, _reactNavigation.createDrawerNavigator)({
-    Home: {
-      screen: MyHomeScreen
-    },
-    Notifications: {
-      screen: MyNotificationsScreen
-    }
-  });
-},690,[118,179,12,493,617],"src\\page\\webScene.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.default = {
-    primary: '#06c1ae',
-    active: '#06c1ae',
-    border: '#E0E0E0',
-    paper: '#f3f3f3',
-    gray: '#979797'
-  };
-},691,[],"src\\base\\color.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\AddressBooks2.js";
-
-  var _react = _require(_dependencyMap[0], "react");
-
-  var _react2 = _interopRequireDefault(_react);
-
-  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
-
-  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  var AddressBooks2 = function AddressBooks2(props) {
-    return _react2.default.createElement(
-      _reactNativeSvg2.default,
-      _extends({}, props, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 4
-        }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M15.962 9.745c-2.545-.073-4.655 2.036-4.727 4.582a4.581 4.581 0 0 0 4.436 4.582c2.545.073 4.655-1.891 4.727-4.436s-1.891-4.582-4.436-4.727z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 5
-        }
-      })),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M27.308 0h-.364H5.053a3.797 3.797 0 0 0-3.636 3.636v5.091h2.618c1.309 0 1.309 2.182 0 2.182H1.49v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v5.818c-.073 1.891 1.382 3.564 3.345 3.636h22.109c2.4 0 3.636-1.309 3.636-3.636V3.636C30.653 1.745 29.198.145 27.307 0zm-5.382 24.073L21.853 24c-1.236-1.964-3.345-3.127-5.673-3.2h-.509c-2.327.073-4.436 1.236-5.673 3.2l-.073.145H7.961l.145-.291c.436-1.018 1.091-1.818 1.964-2.545.727-.582 1.527-1.164 2.4-1.527a5.857 5.857 0 0 1-2.109-2.109c-.582-1.018-.945-2.109-.945-3.273a6.737 6.737 0 0 1 6.473-6.473c3.709-.145 6.764 2.764 6.909 6.473 0 1.164-.291 2.327-.945 3.273-.509.873-1.236 1.527-2.109 2.109.873.364 1.673.945 2.4 1.527.8.727 1.455 1.527 1.964 2.545l.145.291h-2.327z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        }
-      }))
-    );
-  };
-
-  exports.default = AddressBooks2;
-},692,[118,618],"src\\static\\svg\\AddressBooks2.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
 
   var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -101345,6 +100879,489 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   exports.default = Editor;
 },695,[118,618],"src\\static\\svg\\Editor.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Content = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\content.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    Content: {
+      displayName: "Content"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/content.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var Content = exports.Content = _wrapComponent("Content")(function (_React$Component) {
+    _inherits(Content, _React$Component);
+
+    function Content() {
+      _classCallCheck(this, Content);
+
+      return _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).apply(this, arguments));
+    }
+
+    _createClass(Content, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 6
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            title: "Content",
+            onPress: function onPress() {
+              return _this2.props.navigation.navigate('WebScene');
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 8
+            }
+          })
+        );
+      }
+    }]);
+
+    return Content;
+  }(_react3.default.Component));
+},614,[118,179,12],"src\\page\\content.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.About = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\about.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    About: {
+      displayName: "About"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/about.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var About = exports.About = _wrapComponent("About")(function (_React$Component) {
+    _inherits(About, _React$Component);
+
+    function About() {
+      _classCallCheck(this, About);
+
+      return _possibleConstructorReturn(this, (About.__proto__ || Object.getPrototypeOf(About)).apply(this, arguments));
+    }
+
+    _createClass(About, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#111'
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 6
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            title: "About",
+            onPress: function onPress() {
+              return _this2.props.navigation.navigate('Details');
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 8
+            }
+          })
+        );
+      }
+    }]);
+
+    return About;
+  }(_react3.default.Component));
+},615,[118,179,12],"src\\page\\about.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Chat = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _class,
+      _temp,
+      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\chat.js";
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  var _reactNavigation = _require(_dependencyMap[3], "react-navigation");
+
+  var _Gobackto = _require(_dependencyMap[4], "./../static/svg/Gobackto");
+
+  var _Gobackto2 = _interopRequireDefault(_Gobackto);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    Chat: {
+      displayName: "Chat"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/chat.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var Chat = exports.Chat = _wrapComponent("Chat")((_temp = _class = function (_React$Component) {
+    _inherits(Chat, _React$Component);
+
+    function Chat() {
+      _classCallCheck(this, Chat);
+
+      return _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).apply(this, arguments));
+    }
+
+    _createClass(Chat, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 15
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            title: "\u4E00\u8D77\u804A\u5929\u5427",
+            onPress: function onPress() {
+              return _this2.props.navigation.navigate('Home');
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          }),
+          _react3.default.createElement(_reactNative.TextInput, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 21
+            }
+          })
+        );
+      }
+    }]);
+
+    return Chat;
+  }(_react3.default.Component), _class.navigationOptions = function () {
+    return {
+      headerTitle: '返回',
+      headerTintColor: 'black',
+      headerStyle: {
+        backgroundColor: 'red'
+      }
+    };
+  }, _temp));
+},616,[118,179,12,493,617],"src\\page\\chat.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\Gobackto.js";
+
+  var _react = _require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
+
+  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var Gobackto = function Gobackto(props) {
+    return _react2.default.createElement(
+      _reactNativeSvg2.default,
+      _extends({
+        width: 32,
+        height: 32
+      }, props, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 4
+        }
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, {
+        d: "M8.089 30.015H20V32H8.089z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5
+        }
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, {
+        d: "M18.015 8.179V6.194c7.146 0 13.896 5.757 13.896 12.903S26.154 32 19.008 32v-1.985c5.955 0 10.918-4.963 10.918-10.918S23.971 8.179 18.015 8.179zm0-1.985c7.146 0 13.896 5.757 13.896 12.903S26.154 32 19.008 32v-1.985c5.955 0 10.918-4.963 10.918-10.918S23.971 8.179 18.015 8.179V6.194zm-15.881 0h15.881v1.985H2.134z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6
+        }
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, {
+        d: "M1.493 5.711l7.019 7.019-1.405 1.403L.09 7.114z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 7
+        }
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, {
+        d: "M8.532 1.401L1.513 8.416.11 7.015 7.127 0z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 8
+        }
+      })
+    );
+  };
+
+  exports.default = Gobackto;
+},617,[118,618],"src\\static\\svg\\Gobackto.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.WebScene = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _class,
+      _temp,
+      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\webScene.js";
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  var _reactNavigation = _require(_dependencyMap[3], "react-navigation");
+
+  var _Gobackto = _require(_dependencyMap[4], "./../static/svg/Gobackto");
+
+  var _Gobackto2 = _interopRequireDefault(_Gobackto);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    WebScene: {
+      displayName: "WebScene"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/webScene.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var WebScene = exports.WebScene = _wrapComponent("WebScene")((_temp = _class = function (_React$Component) {
+    _inherits(WebScene, _React$Component);
+
+    function WebScene() {
+      _classCallCheck(this, WebScene);
+
+      return _possibleConstructorReturn(this, (WebScene.__proto__ || Object.getPrototypeOf(WebScene)).apply(this, arguments));
+    }
+
+    _createClass(WebScene, [{
+      key: "render",
+      value: function render() {
+        var navigation = this.props.navigation;
+        console.log(navigation);
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 19
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            onPress: function onPress() {
+              return navigation.navigate('Home');
+            },
+            title: "Go to notifications",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 20
+            }
+          }),
+          _react3.default.createElement(_reactNative.Button, {
+            onPress: function onPress() {
+              return navigation.goBack();
+            },
+            title: "Go back",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 24
+            }
+          })
+        );
+      }
+    }]);
+
+    return WebScene;
+  }(_react3.default.Component), _class.navigationOptions = {
+    headerTitle: '',
+    drawerLabel: 'Home',
+    drawerIcon: function drawerIcon(_ref) {
+      var tintColor = _ref.tintColor;
+      return _react3.default.createElement(_Gobackto2.default, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      });
+    }
+  }, _temp));
+
+  var styles = _reactNative.StyleSheet.create({
+    icon: {
+      width: 24,
+      height: 24
+    }
+  });
+},690,[118,179,12,493,617],"src\\page\\webScene.js");
 require(44);
 require(11);
 //# sourceMappingURL=index.map

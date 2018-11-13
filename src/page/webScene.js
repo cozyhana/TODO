@@ -3,9 +3,9 @@ import { Text, View, Button, StyleSheet } from 'react-native'
 import { createDrawerNavigator } from 'react-navigation';
 import Gobackto from './../static/svg/Gobackto'
 
-class MyHomeScreen extends React.Component {
+export class WebScene extends React.Component {
   static navigationOptions = {
-    title: '返回',
+    headerTitle: '',
     drawerLabel: 'Home',
     drawerIcon: ({ tintColor }) => (
       <Gobackto />
@@ -18,29 +18,14 @@ class MyHomeScreen extends React.Component {
     return (
       <View>
         <Button
-          onPress={() => navigation.openDrawer()}
+          onPress={() => navigation.navigate('Home')}
           title="Go to notifications"
         />
-
+        <Button
+          onPress={() => navigation.goBack()}
+          title="Go back"
+        />
       </View>
-    );
-  }
-}
-
-class MyNotificationsScreen extends React.Component {
-  static navigationOptions = {
-    drawerLabel: 'Notifications',
-    drawerIcon: ({ tintColor }) => (
-      <Gobackto />
-    ),
-  };
-
-  render() {
-    return (
-      <Button
-        onPress={() => this.props.navigation.closeDrawer()}
-        title="Go back home"
-      />
     );
   }
 }
@@ -49,14 +34,5 @@ const styles = StyleSheet.create({
   icon: {
     width: 24,
     height: 24,
-  },
-});
-
-export const WebScene = createDrawerNavigator({
-  Home: {
-    screen: MyHomeScreen,
-  },
-  Notifications: {
-    screen: MyNotificationsScreen,
   },
 });

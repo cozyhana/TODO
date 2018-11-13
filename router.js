@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator, createMaterialBottomTabNavigator } from 'react-navigation';
 
 import { Login, Home, Chat, Content, About, WebScene } from './src/page/index';
 //全局颜色
@@ -17,6 +17,7 @@ const TabNavigator = createBottomTabNavigator(
       screen: Home,
       navigationOptions: {
         tabBarLabel: '首页',
+        title: '12'
       }
     },
     'Chat': {
@@ -65,6 +66,7 @@ const TabNavigator = createBottomTabNavigator(
         return iconName
       },
     }),
+
     tabBarOptions: {
       activeTintColor: color.active, // 活动选项卡的标签和图标颜色。
       inactiveTintColor: color.gray, //"非活动" 选项卡的标签和图标颜色。
@@ -87,11 +89,41 @@ const AppNavigator = createStackNavigator(
     TabNavigator: { screen: TabNavigator },
     WebScene: { screen: WebScene },
   }, {
-    // initialRouteName: 'TabNavigator',
-    /* The header config from HomeScreen is now here */
-    // navigationOptions: {}
-    mode: 'modal',
-    headerMode: 'none',
+    navigationOptions: ({ navigation }) => {
+      let routeName;
+      console.log(navigation)
+      const states = navigation.state
+      if (states.routes) {
+        let { index, routes } = states
+        routeName = routes[index].routeName;
+      }
+      let iconName = null;
+      switch (routeName) {
+        case 'Home':
+          iconName = <Home />
+          break;
+        case 'Chat':
+          iconName = <Chat />
+          break;
+        case 'Content':
+          iconName = <Content />
+          break;
+        case 'About':
+          iconName = <About />
+          break;
+      }
+
+      return ({
+        headerTitle: iconName,
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      })
+    }
   }
 );
 
