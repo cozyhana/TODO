@@ -100,16 +100,16 @@ const AppNavigator = createStackNavigator(
       let iconName = null;
       switch (routeName) {
         case 'Home':
-          iconName = <Home />
+          iconName = "首页"
           break;
         case 'Chat':
-          iconName = <Chat />
+          iconName = '聊天'
           break;
         case 'Content':
-          iconName = <Content />
+          iconName = "内容"
           break;
         case 'About':
-          iconName = <About />
+          iconName = "关于"
           break;
       }
 
