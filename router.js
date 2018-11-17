@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Button } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator, createMaterialBottomTabNavigator } from 'react-navigation';
 
-import { Login, Home, Chat, Content, About, WebScene } from './src/page/index';
+import { Login, Home, Chat, Content, About, WebScene, Drawer } from './src/page/index';
 //全局颜色
 import color from './src/base/color'
 //下方图标
@@ -86,12 +86,12 @@ const AppNavigator = createStackNavigator(
     // 首页
     // Login: { screen: Login },
     // NoData: { screen: NoData },
-    TabNavigator: { screen: TabNavigator },
-    WebScene: { screen: WebScene },
+    TabNavigator: TabNavigator,
+    WebScene: WebScene,
+    Drawer: Drawer
   }, {
     navigationOptions: ({ navigation }) => {
       let routeName;
-      console.log(navigation)
       const states = navigation.state
       if (states.routes) {
         let { index, routes } = states
@@ -122,6 +122,7 @@ const AppNavigator = createStackNavigator(
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        lazy: false
       })
     }
   }

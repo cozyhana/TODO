@@ -4,4 +4,4 @@ export * from './content';
 export * from './about';
 export * from './chat';
 export * from './webScene';
-
+export * from './drawer';

@@ -61503,17 +61503,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     }
   });
   var AppNavigator = (0, _reactNavigation.createStackNavigator)({
-    TabNavigator: {
-      screen: TabNavigator
-    },
-    WebScene: {
-      screen: _index.WebScene
-    }
+    TabNavigator: TabNavigator,
+    WebScene: _index.WebScene,
+    Drawer: _index.Drawer
   }, {
     navigationOptions: function navigationOptions(_ref3) {
       var navigation = _ref3.navigation;
       var routeName = void 0;
-      console.log(navigation);
       var states = navigation.state;
 
       if (states.routes) {
@@ -61550,7 +61546,8 @@ __d(function (global, _require, module, exports, _dependencyMap) {
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold'
-        }
+        },
+        lazy: false
       };
     }
   });
@@ -79694,7 +79691,19 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       }
     });
   });
-},610,[611,612,613,614,615,687],"src\\page\\index.js");
+
+  var _drawer = _require(_dependencyMap[6], "./drawer");
+
+  Object.keys(_drawer).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _drawer[key];
+      }
+    });
+  });
+},610,[611,612,613,614,615,687,694],"src\\page\\index.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -79876,17 +79885,17 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 18
+              lineNumber: 17
             }
           },
           _react3.default.createElement(_reactNative.Button, {
-            title: "\u9996\u9875",
+            title: "topTab",
             onPress: function onPress() {
               return _this2.props.navigation.navigate('WebScene');
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 18
             }
           })
         );
@@ -79981,7 +79990,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           _react3.default.createElement(_reactNative.Button, {
             title: "Content",
             onPress: function onPress() {
-              return _this2.props.navigation.navigate('WebScene');
+              return _this2.props.navigation.navigate('Drawer');
             },
             __source: {
               fileName: _jsxFileName,
@@ -80062,8 +80071,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             style: {
               flex: 1,
               justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor: '#111'
+              alignItems: 'center'
             },
             __source: {
               fileName: _jsxFileName,
@@ -80109,9 +80117,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
 
-  var _reactNavigation = _require(_dependencyMap[3], "react-navigation");
-
-  var _Gobackto = _require(_dependencyMap[4], "./../static/svg/Gobackto");
+  var _Gobackto = _require(_dependencyMap[3], "./../static/svg/Gobackto");
 
   var _Gobackto2 = _interopRequireDefault(_Gobackto);
 
@@ -80154,8 +80160,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     _createClass(Chat, [{
       key: "render",
       value: function render() {
-        var _this2 = this;
-
+        var navigation = this.props.navigation;
         return _react3.default.createElement(
           _reactNative.View,
           {
@@ -80170,19 +80175,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             }
           },
           _react3.default.createElement(_reactNative.Button, {
-            title: "\u4E00\u8D77\u804A\u5929\u5427",
+            title: "drawer",
             onPress: function onPress() {
-              return _this2.props.navigation.navigate('Home');
+              return navigation.navigate('Drawer');
             },
             __source: {
               fileName: _jsxFileName,
               lineNumber: 17
-            }
-          }),
-          _react3.default.createElement(_reactNative.TextInput, {
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 21
             }
           })
         );
@@ -80199,7 +80198,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       }
     };
   }, _temp));
-},615,[118,179,12,493,616],"src\\page\\chat.js");
+},615,[118,179,12,616],"src\\page\\chat.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -100610,7 +100609,9 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _class,
       _temp,
-      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\webScene.js";
+      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\webScene.js",
+      _class2,
+      _temp2;
 
   var _reactNative = _require(_dependencyMap[2], "react-native");
 
@@ -100629,8 +100630,11 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
   var _components = {
-    WebScene: {
-      displayName: "WebScene"
+    WebSceneHome: {
+      displayName: "WebSceneHome"
+    },
+    Left: {
+      displayName: "Left"
     }
   };
 
@@ -100647,71 +100651,99 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     };
   }
 
-  var WebScene = exports.WebScene = _wrapComponent("WebScene")((_temp = _class = function (_React$Component) {
-    _inherits(WebScene, _React$Component);
+  var WebSceneHome = _wrapComponent("WebSceneHome")((_temp = _class = function (_React$Component) {
+    _inherits(WebSceneHome, _React$Component);
 
-    function WebScene() {
-      _classCallCheck(this, WebScene);
+    function WebSceneHome() {
+      _classCallCheck(this, WebSceneHome);
 
-      return _possibleConstructorReturn(this, (WebScene.__proto__ || Object.getPrototypeOf(WebScene)).apply(this, arguments));
+      return _possibleConstructorReturn(this, (WebSceneHome.__proto__ || Object.getPrototypeOf(WebSceneHome)).apply(this, arguments));
     }
 
-    _createClass(WebScene, [{
+    _createClass(WebSceneHome, [{
       key: "render",
       value: function render() {
         var navigation = this.props.navigation;
-        console.log(navigation);
         return _react3.default.createElement(
           _reactNative.View,
           {
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 19
+              lineNumber: 14
             }
           },
           _react3.default.createElement(_reactNative.Button, {
             onPress: function onPress() {
-              return navigation.navigate('Home');
+              return navigation.navigate('About');
             },
-            title: "Go to notifications",
+            title: "go to about",
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 20
-            }
-          }),
-          _react3.default.createElement(_reactNative.Button, {
-            onPress: function onPress() {
-              return navigation.goBack();
-            },
-            title: "Go back",
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 24
+              lineNumber: 15
             }
           })
         );
       }
     }]);
 
-    return WebScene;
+    return WebSceneHome;
   }(_react3.default.Component), _class.navigationOptions = {
-    headerTitle: '',
-    drawerLabel: 'Home',
-    drawerIcon: function drawerIcon(_ref) {
-      var tintColor = _ref.tintColor;
-      return _react3.default.createElement(_Gobackto2.default, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 11
-        }
-      });
-    }
+    title: 'Right'
   }, _temp));
 
   var styles = _reactNative.StyleSheet.create({
     icon: {
       width: 24,
       height: 24
+    }
+  });
+
+  var Left = _wrapComponent("Left")((_temp2 = _class2 = function (_React$Component2) {
+    _inherits(Left, _React$Component2);
+
+    function Left() {
+      _classCallCheck(this, Left);
+
+      return _possibleConstructorReturn(this, (Left.__proto__ || Object.getPrototypeOf(Left)).apply(this, arguments));
+    }
+
+    _createClass(Left, [{
+      key: "render",
+      value: function render() {
+        var navigation = this.props.navigation;
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 39
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            onPress: function onPress() {
+              return navigation.navigate('WebSceneHome');
+            },
+            title: "left",
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 40
+            }
+          })
+        );
+      }
+    }]);
+
+    return Left;
+  }(_react3.default.Component), _class2.navigationOptions = {
+    title: 'Left'
+  }, _temp2));
+
+  var WebScene = exports.WebScene = (0, _reactNavigation.createMaterialTopTabNavigator)({
+    Left: Left,
+    WebSceneHome: WebSceneHome
+  }, {
+    navigationOptions: function navigationOptions() {
+      headerTitle: 'da';
     }
   });
 },687,[118,179,12,493,616],"src\\page\\webScene.js");
@@ -100907,6 +100939,185 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   exports.default = Editor;
 },692,[118,617],"src\\static\\svg\\Editor.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.Drawer = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _class,
+      _temp,
+      _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\drawer.js",
+      _class2,
+      _temp2;
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  var _reactNavigation = _require(_dependencyMap[3], "react-navigation");
+
+  var _Gobackto = _require(_dependencyMap[4], "./../static/svg/Gobackto");
+
+  var _Gobackto2 = _interopRequireDefault(_Gobackto);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    ChatHome: {
+      displayName: "ChatHome"
+    },
+    ChatSecen: {
+      displayName: "ChatSecen"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/drawer.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var ChatHome = _wrapComponent("ChatHome")((_temp = _class = function (_React$Component) {
+    _inherits(ChatHome, _React$Component);
+
+    function ChatHome() {
+      _classCallCheck(this, ChatHome);
+
+      return _possibleConstructorReturn(this, (ChatHome.__proto__ || Object.getPrototypeOf(ChatHome)).apply(this, arguments));
+    }
+
+    _createClass(ChatHome, [{
+      key: "render",
+      value: function render() {
+        var navigation = this.props.navigation;
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            title: "\u6253\u5F00",
+            onPress: function onPress() {
+              return navigation.dispatch(_reactNavigation.DrawerActions.openDrawer());
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 19
+            }
+          })
+        );
+      }
+    }]);
+
+    return ChatHome;
+  }(_react3.default.Component), _class.navigationOptions = function () {
+    return {
+      headerTitle: '返回',
+      headerTintColor: 'black',
+      headerStyle: {
+        backgroundColor: 'red'
+      }
+    };
+  }, _temp));
+
+  var ChatSecen = _wrapComponent("ChatSecen")((_temp2 = _class2 = function (_React$Component2) {
+    _inherits(ChatSecen, _React$Component2);
+
+    function ChatSecen() {
+      _classCallCheck(this, ChatSecen);
+
+      return _possibleConstructorReturn(this, (ChatSecen.__proto__ || Object.getPrototypeOf(ChatSecen)).apply(this, arguments));
+    }
+
+    _createClass(ChatSecen, [{
+      key: "render",
+      value: function render() {
+        var navigation = this.props.navigation;
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: {
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 39
+            }
+          },
+          _react3.default.createElement(_reactNative.Button, {
+            title: "drawer",
+            onPress: function onPress() {
+              return navigation.dispatch(_reactNavigation.DrawerActions.toggleDrawer());
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 41
+            }
+          })
+        );
+      }
+    }]);
+
+    return ChatSecen;
+  }(_react3.default.Component), _class2.navigationOptions = function () {
+    return {
+      headerTitle: '返回',
+      headerTintColor: 'black',
+      headerStyle: {
+        backgroundColor: 'red'
+      }
+    };
+  }, _temp2));
+
+  var Drawer = exports.Drawer = (0, _reactNavigation.createDrawerNavigator)({
+    ChatHome: ChatHome,
+    ChatSecen: ChatSecen
+  }, {
+    drawerPosition: 'right',
+    contentComponent: _react3.default.createElement(
+      _reactNative.Text,
+      {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 56
+        }
+      },
+      "dsa"
+    )
+  });
+},694,[118,179,12,493,616],"src\\page\\drawer.js");
 require(44);
 require(11);
 //# sourceMappingURL=index.map

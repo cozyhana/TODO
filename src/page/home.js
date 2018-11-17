@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Text, View, Button, TouchableOpacity } from 'react-native';
-
 export class Home extends Component {
 
   static navigationOptions = (navigation, navigationOptions) => {
@@ -17,7 +16,7 @@ export class Home extends Component {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Button
-          title="首页"
+          title="topTab"
           onPress={() => this.props.navigation.navigate('WebScene')}
         />
       </View>
@@ -25,4 +24,3 @@ export class Home extends Component {
   }
 }
 
-// const drawer = createDrawerNavigator(RouteConfigs, DrawerNavigatorConfig)

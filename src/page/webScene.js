@@ -1,29 +1,20 @@
 import React, { Component } from 'react'
 import { Text, View, Button, StyleSheet } from 'react-native'
-import { createDrawerNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 import Gobackto from './../static/svg/Gobackto'
 
-export class WebScene extends React.Component {
+class WebSceneHome extends React.Component {
   static navigationOptions = {
-    headerTitle: '',
-    drawerLabel: 'Home',
-    drawerIcon: ({ tintColor }) => (
-      <Gobackto />
-    ),
+    title: 'Right',
   };
 
   render() {
     let { navigation } = this.props
-    console.log(navigation)
     return (
       <View>
         <Button
-          onPress={() => navigation.navigate('Home')}
-          title="Go to notifications"
-        />
-        <Button
-          onPress={() => navigation.goBack()}
-          title="Go back"
+          onPress={() => navigation.navigate('About')}
+          title="go to about"
         />
       </View>
     );
@@ -36,3 +27,30 @@ const styles = StyleSheet.create({
     height: 24,
   },
 });
+
+class Left extends React.Component {
+  static navigationOptions = {
+    title: 'Left',
+  };
+
+  render() {
+    let { navigation } = this.props
+    return (
+      <View>
+        <Button
+          onPress={() => navigation.navigate('WebSceneHome')}
+          title="left"
+        />
+      </View>
+    );
+  }
+}
+
+export const WebScene = createMaterialTopTabNavigator({
+  Left: Left,
+  WebSceneHome: WebSceneHome
+}, {
+    navigationOptions: () => {
+      headerTitle: 'da'
+    }
+  })
