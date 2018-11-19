@@ -5,7 +5,7 @@ import Gobackto from './../static/svg/Gobackto';
 
 class ChatHome extends React.Component {
   static navigationOptions = () => ({
-    headerTitle: '返回',
+    title: '1',
     headerTintColor: 'black',
     headerStyle: {
       backgroundColor: 'red'
@@ -27,7 +27,7 @@ class ChatHome extends React.Component {
 
 class ChatSecen extends React.Component {
   static navigationOptions = () => ({
-    headerTitle: '返回',
+    title: '2',
     headerTintColor: 'black',
     headerStyle: {
       backgroundColor: 'red'
@@ -52,7 +52,12 @@ export const Drawer = createDrawerNavigator({
   ChatHome: ChatHome,
   ChatSecen: ChatSecen,
 }, {
-    drawerPosition: 'right'
+    drawerPosition: 'right',
+    navigationOptions: (navigation) => {
+      console.log(navigation)
+    }
   })
+
+
 
 

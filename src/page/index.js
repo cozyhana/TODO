@@ -7,3 +7,4 @@ export * from './webScene';
 export * from './drawer';
 export * from './setParam';
 export * from './authLoading';
+export * from './withNavigationFocus';

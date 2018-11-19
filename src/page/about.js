@@ -7,7 +7,7 @@ export class About extends React.Component {
         {/* other code from before here */}
         <Button
           title="About"
-          onPress={() => this.props.navigation.navigate('Details')}
+          onPress={() => this.props.navigation.navigate('WithNavFocus')}
         />
       </View>
     );

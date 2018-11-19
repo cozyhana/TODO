@@ -10,6 +10,7 @@ class WithNavFocusSecene extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <View>
         <Text> {this.props.isFocused ? 'Focused' : 'Not focused'} </Text>

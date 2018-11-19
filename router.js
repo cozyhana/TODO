@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, Button } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator, createMaterialBottomTabNavigator, createSwitchNavigator } from 'react-navigation';
 
-import { Login, Home, Chat, Content, About, WebScene, Drawer, SetParamSecen, AuthLoading } from './src/page/index';
+import { Login, Home, Chat, Content, About, WebScene, Drawer, SetParamSecen, AuthLoading, WithNavFocus } from './src/page/index';
 import { HomeButton } from './src/page/header.index'
 
 //全局颜色
@@ -91,7 +91,8 @@ const AppStack = createStackNavigator(
     TabNavigator: TabNavigator,
     WebScene: WebScene,
     Drawer: Drawer,
-    SetParamSecen: SetParamSecen
+    SetParamSecen: SetParamSecen,
+    WithNavFocus: WithNavFocus
   }, {
     navigationOptions: ({ navigation }) => {
       // console.log(navigation)
@@ -130,7 +131,7 @@ const AppStack = createStackNavigator(
         headerTitleStyle: {
           fontWeight: 'bold',
         },
-        lazy: false
+        lazy: true
       })
     }
   }
