@@ -4,10 +4,11 @@ export class Content extends React.Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        {/* other code from before here */}
         <Button
           title="Content"
-          onPress={() => this.props.navigation.navigate('Drawer')}
+          onPress={() => this.props.navigation.navigate('SetParamSecen', {
+            name: 'Brent'
+          })}
         />
       </View>
     );

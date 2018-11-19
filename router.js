@@ -1,8 +1,10 @@
 import React from 'react';
 import { Text, View, Button } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator, createMaterialBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator, createMaterialBottomTabNavigator, createSwitchNavigator } from 'react-navigation';
 
-import { Login, Home, Chat, Content, About, WebScene, Drawer } from './src/page/index';
+import { Login, Home, Chat, Content, About, WebScene, Drawer, SetParamSecen, AuthLoading } from './src/page/index';
+import { HomeButton } from './src/page/header.index'
+
 //全局颜色
 import color from './src/base/color'
 //下方图标
@@ -81,16 +83,18 @@ const TabNavigator = createBottomTabNavigator(
   }
 )
 
-const AppNavigator = createStackNavigator(
+const AppStack = createStackNavigator(
   {
     // 首页
     // Login: { screen: Login },
     // NoData: { screen: NoData },
     TabNavigator: TabNavigator,
     WebScene: WebScene,
-    Drawer: Drawer
+    Drawer: Drawer,
+    SetParamSecen: SetParamSecen
   }, {
     navigationOptions: ({ navigation }) => {
+      // console.log(navigation)
       let routeName;
       const states = navigation.state
       if (states.routes) {
@@ -98,12 +102,15 @@ const AppNavigator = createStackNavigator(
         routeName = routes[index].routeName;
       }
       let iconName = null;
+      let rightButton = null;
       switch (routeName) {
         case 'Home':
-          iconName = "首页"
+          iconName = "首页";
+          rightButton = <Button title="right" onPress={() => { alert(12) }} />
           break;
         case 'Chat':
-          iconName = '聊天'
+          iconName = '聊天';
+          rightButton = <HomeButton />;
           break;
         case 'Content':
           iconName = "内容"
@@ -115,6 +122,7 @@ const AppNavigator = createStackNavigator(
 
       return ({
         headerTitle: iconName,
+        headerRight: rightButton,
         headerStyle: {
           backgroundColor: '#f4511e',
         },
@@ -127,6 +135,16 @@ const AppNavigator = createStackNavigator(
     }
   }
 );
+
+const AppNavigator = createSwitchNavigator({
+  AuthLoading: AuthLoading,
+  App: AppStack,
+  Login: Login,
+},
+  {
+    initialRouteName: 'AuthLoading',
+  }
+)
 
 export default AppNavigator
 

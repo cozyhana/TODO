@@ -61385,23 +61385,25 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
   var _index = _require(_dependencyMap[3], "./src/page/index");
 
-  var _color = _require(_dependencyMap[4], "./src/base/color");
+  var _header = _require(_dependencyMap[4], "./src/page/header.index");
+
+  var _color = _require(_dependencyMap[5], "./src/base/color");
 
   var _color2 = _interopRequireDefault(_color);
 
-  var _AddressBooks = _require(_dependencyMap[5], "./src/static/svg/AddressBooks2");
+  var _AddressBooks = _require(_dependencyMap[6], "./src/static/svg/AddressBooks2");
 
   var _AddressBooks2 = _interopRequireDefault(_AddressBooks);
 
-  var _IdentityCheck = _require(_dependencyMap[6], "./src/static/svg/IdentityCheck");
+  var _IdentityCheck = _require(_dependencyMap[7], "./src/static/svg/IdentityCheck");
 
   var _IdentityCheck2 = _interopRequireDefault(_IdentityCheck);
 
-  var _Bms = _require(_dependencyMap[7], "./src/static/svg/Bms");
+  var _Bms = _require(_dependencyMap[8], "./src/static/svg/Bms");
 
   var _Bms2 = _interopRequireDefault(_Bms);
 
-  var _Editor = _require(_dependencyMap[8], "./src/static/svg/Editor");
+  var _Editor = _require(_dependencyMap[9], "./src/static/svg/Editor");
 
   var _Editor2 = _interopRequireDefault(_Editor);
 
@@ -61453,7 +61455,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_IdentityCheck2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 54
+                  lineNumber: 56
                 }
               }));
               break;
@@ -61462,7 +61464,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_Editor2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 57
+                  lineNumber: 59
                 }
               }));
               break;
@@ -61471,7 +61473,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_AddressBooks2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 60
+                  lineNumber: 62
                 }
               }));
               break;
@@ -61480,7 +61482,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
               iconName = _react2.default.createElement(_Bms2.default, _extends({}, iconStyle, {
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 63
+                  lineNumber: 65
                 }
               }));
               break;
@@ -61502,10 +61504,11 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       }
     }
   });
-  var AppNavigator = (0, _reactNavigation.createStackNavigator)({
+  var AppStack = (0, _reactNavigation.createStackNavigator)({
     TabNavigator: TabNavigator,
     WebScene: _index.WebScene,
-    Drawer: _index.Drawer
+    Drawer: _index.Drawer,
+    SetParamSecen: _index.SetParamSecen
   }, {
     navigationOptions: function navigationOptions(_ref3) {
       var navigation = _ref3.navigation;
@@ -61519,14 +61522,31 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       }
 
       var iconName = null;
+      var rightButton = null;
 
       switch (routeName) {
         case 'Home':
           iconName = "首页";
+          rightButton = _react2.default.createElement(_reactNative.Button, {
+            title: "right",
+            onPress: function onPress() {
+              alert(12);
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 109
+            }
+          });
           break;
 
         case 'Chat':
           iconName = '聊天';
+          rightButton = _react2.default.createElement(_header.HomeButton, {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 113
+            }
+          });
           break;
 
         case 'Content':
@@ -61540,6 +61560,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
 
       return {
         headerTitle: iconName,
+        headerRight: rightButton,
         headerStyle: {
           backgroundColor: '#f4511e'
         },
@@ -61551,8 +61572,15 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       };
     }
   });
+  var AppNavigator = (0, _reactNavigation.createSwitchNavigator)({
+    AuthLoading: _index.AuthLoading,
+    App: AppStack,
+    Login: _index.Login
+  }, {
+    initialRouteName: 'AuthLoading'
+  });
   exports.default = AppNavigator;
-},492,[118,12,493,610,688,689,690,691,692],"router.js");
+},492,[118,12,493,610,691,693,694,695,696,697],"router.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   module.exports = {
     get createNavigationContainer() {
@@ -79703,7 +79731,31 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       }
     });
   });
-},610,[611,612,613,614,615,687,694],"src\\page\\index.js");
+
+  var _setParam = _require(_dependencyMap[7], "./setParam");
+
+  Object.keys(_setParam).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _setParam[key];
+      }
+    });
+  });
+
+  var _authLoading = _require(_dependencyMap[8], "./authLoading");
+
+  Object.keys(_authLoading).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _authLoading[key];
+      }
+    });
+  });
+},610,[611,612,613,614,615,687,688,689,690],"src\\page\\index.js");
 __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
@@ -79990,11 +80042,13 @@ __d(function (global, _require, module, exports, _dependencyMap) {
           _react3.default.createElement(_reactNative.Button, {
             title: "Content",
             onPress: function onPress() {
-              return _this2.props.navigation.navigate('Drawer');
+              return _this2.props.navigation.navigate('SetParamSecen', {
+                name: 'Brent'
+              });
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 8
+              lineNumber: 7
             }
           })
         );
@@ -80161,6 +80215,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
       key: "render",
       value: function render() {
         var navigation = this.props.navigation;
+        console.log(navigation);
         return _react3.default.createElement(
           _reactNative.View,
           {
@@ -80171,7 +80226,7 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 15
+              lineNumber: 16
             }
           },
           _react3.default.createElement(_reactNative.Button, {
@@ -80181,9 +80236,21 @@ __d(function (global, _require, module, exports, _dependencyMap) {
             },
             __source: {
               fileName: _jsxFileName,
-              lineNumber: 17
+              lineNumber: 18
             }
-          })
+          }),
+          _react3.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 22
+              }
+            },
+            " navigation.state.params.name: ",
+            navigation.state.params ? navigation.state.params.name : null,
+            "  "
+          )
         );
       }
     }]);
@@ -100751,198 +100818,6 @@ __d(function (global, _require, module, exports, _dependencyMap) {
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = {
-    primary: '#06c1ae',
-    active: '#06c1ae',
-    border: '#E0E0E0',
-    paper: '#f3f3f3',
-    gray: '#979797'
-  };
-},688,[],"src\\base\\color.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\AddressBooks2.js";
-
-  var _react = _require(_dependencyMap[0], "react");
-
-  var _react2 = _interopRequireDefault(_react);
-
-  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
-
-  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  var AddressBooks2 = function AddressBooks2(props) {
-    return _react2.default.createElement(
-      _reactNativeSvg2.default,
-      _extends({}, props, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 4
-        }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M15.962 9.745c-2.545-.073-4.655 2.036-4.727 4.582a4.581 4.581 0 0 0 4.436 4.582c2.545.073 4.655-1.891 4.727-4.436s-1.891-4.582-4.436-4.727z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 5
-        }
-      })),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M27.308 0h-.364H5.053a3.797 3.797 0 0 0-3.636 3.636v5.091h2.618c1.309 0 1.309 2.182 0 2.182H1.49v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v5.818c-.073 1.891 1.382 3.564 3.345 3.636h22.109c2.4 0 3.636-1.309 3.636-3.636V3.636C30.653 1.745 29.198.145 27.307 0zm-5.382 24.073L21.853 24c-1.236-1.964-3.345-3.127-5.673-3.2h-.509c-2.327.073-4.436 1.236-5.673 3.2l-.073.145H7.961l.145-.291c.436-1.018 1.091-1.818 1.964-2.545.727-.582 1.527-1.164 2.4-1.527a5.857 5.857 0 0 1-2.109-2.109c-.582-1.018-.945-2.109-.945-3.273a6.737 6.737 0 0 1 6.473-6.473c3.709-.145 6.764 2.764 6.909 6.473 0 1.164-.291 2.327-.945 3.273-.509.873-1.236 1.527-2.109 2.109.873.364 1.673.945 2.4 1.527.8.727 1.455 1.527 1.964 2.545l.145.291h-2.327z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 6
-        }
-      }))
-    );
-  };
-
-  exports.default = AddressBooks2;
-},689,[118,617],"src\\static\\svg\\AddressBooks2.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\IdentityCheck.js";
-
-  var _react = _require(_dependencyMap[0], "react");
-
-  var _react2 = _interopRequireDefault(_react);
-
-  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
-
-  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  var IdentityCheck = function IdentityCheck(props) {
-    return _react2.default.createElement(
-      _reactNativeSvg2.default,
-      _extends({}, props, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 4
-        }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M19.561 16.979c2.538.756 4.375 2.207 6.136 4.193.203.227.497.37.824.37h.009c.259 0 .083-.088.292-.27a1.094 1.094 0 0 0 .099-1.552l.001.001a16.412 16.412 0 0 0-5.836-4.214l-.107-.04a7.84 7.84 0 0 0 2.693-5.92l-.001-.123v.006c0-4.53-2.704-8.232-7.89-8.326A8.03 8.03 0 0 0 7.45 9.445V9.43c.044 2.444.855 4.53 2.566 6.036C4.306 17.888.311 23.317.003 29.714l-.001.037-.001.045c0 .594.47 1.079 1.058 1.103h.052c.585 0 .64-.458.668-1.048.265-5.998 3.895-11.173 9.683-12.884a.51.51 0 0 0 .086-.029l-.003.001a12.32 12.32 0 0 0 3.767.815l.034.002a14.732 14.732 0 0 0 4.213-.849l-.103.032c.03.015.064.028.101.038l.004.001zM9.21 9.211a6.359 6.359 0 1 1 12.718 0c0 3.504-2.853 6.798-6.362 6.798S9.21 12.715 9.21 9.211zM31.677 20.56c-.436-.43-.999.27-1.429.701l-7.89 7.449-3.509-3.504c-.43-.43-1.264-1.142-1.694-.712a1.085 1.085 0 0 0 0 1.556l4.497 4.469c.202.198.478.32.783.32.305-.002.581-.124.784-.32l8.458-8.403a1.097 1.097 0 0 0 0-1.556z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 5
-        }
-      }))
-    );
-  };
-
-  exports.default = IdentityCheck;
-},690,[118,617],"src\\static\\svg\\IdentityCheck.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\Bms.js";
-
-  var _react = _require(_dependencyMap[0], "react");
-
-  var _react2 = _interopRequireDefault(_react);
-
-  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
-
-  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  var Bms = function Bms(props) {
-    return _react2.default.createElement(
-      _reactNativeSvg2.default,
-      _extends({
-        width: 32,
-        height: 32
-      }, props, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 4
-        }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm7.744 14.962a.365.365 0 0 1-.338.226v-.005h-.004a.352.352 0 0 1-.252-.105l-6.839-6.005a.448.448 0 0 0-.624 0L8.85 15.078c-.065.067-.156.108-.257.108s-.192-.041-.257-.108a.37.37 0 0 1-.002-.519l6.841-6.002c.213-.207.503-.334.824-.334s.611.127.824.335l6.841 6.002a.367.367 0 0 1 .079.405l.001-.002zm-7.758-.791c.999.02 1.806.818 1.84 1.812v.702h.457c.379 0 .686.307.686.686v2.517a.686.686 0 0 1-.686.686h-4.569a.686.686 0 0 1-.686-.686v-2.517c0-.379.307-.686.686-.686h.457v-.704-.015c0-.991.804-1.795 1.795-1.795h.021-.001zm1.383 1.815a1.426 1.426 0 0 0-1.381-1.358H15.97c-.741 0-1.342.601-1.342 1.342v.012-.001.704h2.741v-.699zm-3.883 1.385v2.517c0 .126.102.229.229.229h4.569a.229.229 0 0 0 .229-.229v-2.517a.229.229 0 0 0-.229-.229h-3.849a.18.18 0 0 1-.069-.001h-.65a.229.229 0 0 0-.229.229zm2.514.695a.228.228 0 0 1 .226.219v.688a.229.229 0 1 1-.457.022l.001-.025v.001-.686a.228.228 0 0 1 .228-.219zm-5.531-2.829a.366.366 0 0 1 .363.366v6.8c0 .347.28.629.626.633h9.091a.63.63 0 0 0 .624-.631v-6.8a.363.363 0 1 1 .726 0v6.804c0 .749-.603 1.356-1.35 1.363h-9.091a1.363 1.363 0 0 1-1.353-1.364v-6.804-.002c0-.201.162-.364.363-.366z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 5
-        }
-      }))
-    );
-  };
-
-  exports.default = Bms;
-},691,[118,617],"src\\static\\svg\\Bms.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-
-  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\Editor.js";
-
-  var _react = _require(_dependencyMap[0], "react");
-
-  var _react2 = _interopRequireDefault(_react);
-
-  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
-
-  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-  var Editor = function Editor(props) {
-    return _react2.default.createElement(
-      _reactNativeSvg2.default,
-      _extends({
-        width: 32,
-        height: 32
-      }, props, {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 4
-        }
-      }),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M24.427 13.227L18.88 7.68c-.213-.213-.64-.213-.96 0L7.573 18.027v5.867c-.107.427.107.64.533.64h5.867L24.32 14.187c.32-.32.32-.747.107-.96zm-6.08-4.267l1.813 1.813-9.28 9.28-1.813-1.813 9.28-9.28zm-9.6 14.4v-3.307l3.413 3.413H8.747v-.107zm4.906-.427L11.84 21.12l9.28-9.28 1.813 1.813-9.28 9.28z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 5
-        }
-      })),
-      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
-        d: "M16 0C7.147 0 0 7.147 0 16s7.147 16 16 16 16-7.147 16-16S24.853 0 16 0zm0 30.72C7.893 30.72 1.28 24.107 1.28 16S7.893 1.28 16 1.28 30.72 7.893 30.72 16 24.107 30.72 16 30.72z",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 9
-        }
-      }))
-    );
-  };
-
-  exports.default = Editor;
-},692,[118,617],"src\\static\\svg\\Editor.js");
-__d(function (global, _require, module, exports, _dependencyMap) {
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
   exports.Drawer = undefined;
 
   var _react2 = _require(_dependencyMap[0], "react");
@@ -101105,19 +100980,524 @@ __d(function (global, _require, module, exports, _dependencyMap) {
     ChatHome: ChatHome,
     ChatSecen: ChatSecen
   }, {
-    drawerPosition: 'right',
-    contentComponent: _react3.default.createElement(
-      _reactNative.Text,
-      {
+    drawerPosition: 'right'
+  });
+},688,[118,179,12,493,616],"src\\page\\drawer.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.SetParamSecen = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\setParam.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    SetParamSecen: {
+      displayName: "SetParamSecen"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/setParam.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var SetParamSecen = exports.SetParamSecen = _wrapComponent("SetParamSecen")(function (_Component) {
+    _inherits(SetParamSecen, _Component);
+
+    function SetParamSecen(props) {
+      _classCallCheck(this, SetParamSecen);
+
+      var _this = _possibleConstructorReturn(this, (SetParamSecen.__proto__ || Object.getPrototypeOf(SetParamSecen)).call(this, props));
+
+      _this.state = {};
+      return _this;
+    }
+
+    _createClass(SetParamSecen, [{
+      key: "render",
+      value: function render() {
+        var navigation = this.props.navigation;
+        console.log(styles.container);
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            style: styles.container,
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 15
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.Text,
+            {
+              style: styles.text,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 16
+              }
+            },
+            " navigation.getParam('name', 'Peter',default): ",
+            navigation.getParam('name', 'Peter'),
+            "  "
+          ),
+          _react3.default.createElement(
+            _reactNative.Text,
+            {
+              style: styles.text,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 17
+              }
+            },
+            " navigation.state.params.name: ",
+            navigation.state.params.name,
+            "  "
+          ),
+          _react3.default.createElement(_reactNative.Button, {
+            title: "setParams",
+            onPress: function onPress() {
+              return navigation.setParams({
+                'name': Math.ceil(Math.random() * 20)
+              });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 18
+            }
+          })
+        );
+      }
+    }]);
+
+    return SetParamSecen;
+  }(_react2.Component));
+
+  var styles = _reactNative.StyleSheet.create({
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    text: {
+      fontSize: 20,
+      margin: 10
+    }
+  });
+},689,[118,179,12],"src\\page\\setParam.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.AuthLoading = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\authLoading.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    AuthLoading: {
+      displayName: "AuthLoading"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/authLoading.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var AuthLoading = exports.AuthLoading = _wrapComponent("AuthLoading")(function (_Component) {
+    _inherits(AuthLoading, _Component);
+
+    function AuthLoading() {
+      _classCallCheck(this, AuthLoading);
+
+      return _possibleConstructorReturn(this, (AuthLoading.__proto__ || Object.getPrototypeOf(AuthLoading)).apply(this, arguments));
+    }
+
+    _createClass(AuthLoading, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        this.props.navigation.navigate('Login');
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        return _react3.default.createElement(
+          _reactNative.View,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 12
+            }
+          },
+          _react3.default.createElement(
+            _reactNative.Text,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 13
+              }
+            },
+            " AuthLoading "
+          )
+        );
+      }
+    }]);
+
+    return AuthLoading;
+  }(_react2.Component));
+},690,[118,179,12],"src\\page\\authLoading.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _homeBotton = _require(_dependencyMap[0], "./homeBotton");
+
+  Object.keys(_homeBotton).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function get() {
+        return _homeBotton[key];
+      }
+    });
+  });
+},691,[692],"src\\page\\header.index.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.HomeButton = undefined;
+
+  var _react2 = _require(_dependencyMap[0], "react");
+
+  var _react3 = _interopRequireDefault(_react2);
+
+  var _index = _require(_dependencyMap[1], "./../../node_modules/react-transform-hmr/lib/index.js");
+
+  var _index2 = _interopRequireDefault(_index);
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\page\\homeBotton.js";
+
+  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+  var _reactNative = _require(_dependencyMap[2], "react-native");
+
+  var _reactNavigation = _require(_dependencyMap[3], "react-navigation");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+  function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+  var _components = {
+    HomeButtonSecene: {
+      displayName: "HomeButtonSecene"
+    }
+  };
+
+  var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+    filename: "e:/Test/TODO/todo/src/page/homeBotton.js",
+    components: _components,
+    locals: [module],
+    imports: [_react3.default]
+  });
+
+  function _wrapComponent(id) {
+    return function (Component) {
+      return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+    };
+  }
+
+  var HomeButtonSecene = _wrapComponent("HomeButtonSecene")(function (_Component) {
+    _inherits(HomeButtonSecene, _Component);
+
+    function HomeButtonSecene(props) {
+      _classCallCheck(this, HomeButtonSecene);
+
+      var _this = _possibleConstructorReturn(this, (HomeButtonSecene.__proto__ || Object.getPrototypeOf(HomeButtonSecene)).call(this, props));
+
+      _this.state = {};
+      return _this;
+    }
+
+    _createClass(HomeButtonSecene, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        var navigation = this.props.navigation;
+        return _react3.default.createElement(_reactNative.Button, {
+          title: "Chat",
+          onPress: function onPress() {
+            _this2.props.navigation.navigate('Chat', {
+              'name': 'hf'
+            });
+          },
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 15
+          }
+        });
+      }
+    }]);
+
+    return HomeButtonSecene;
+  }(_react2.Component));
+
+  var HomeButton = exports.HomeButton = (0, _reactNavigation.withNavigation)(HomeButtonSecene);
+},692,[118,179,12,493],"src\\page\\homeBotton.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = {
+    primary: '#06c1ae',
+    active: '#06c1ae',
+    border: '#E0E0E0',
+    paper: '#f3f3f3',
+    gray: '#979797'
+  };
+},693,[],"src\\base\\color.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\AddressBooks2.js";
+
+  var _react = _require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
+
+  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var AddressBooks2 = function AddressBooks2(props) {
+    return _react2.default.createElement(
+      _reactNativeSvg2.default,
+      _extends({}, props, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 4
         }
-      },
-      "dsa"
-    )
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M15.962 9.745c-2.545-.073-4.655 2.036-4.727 4.582a4.581 4.581 0 0 0 4.436 4.582c2.545.073 4.655-1.891 4.727-4.436s-1.891-4.582-4.436-4.727z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5
+        }
+      })),
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M27.308 0h-.364H5.053a3.797 3.797 0 0 0-3.636 3.636v5.091h2.618c1.309 0 1.309 2.182 0 2.182H1.49v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v3.636h2.4c1.309 0 1.382 2.182 0 2.182h-2.4v5.818c-.073 1.891 1.382 3.564 3.345 3.636h22.109c2.4 0 3.636-1.309 3.636-3.636V3.636C30.653 1.745 29.198.145 27.307 0zm-5.382 24.073L21.853 24c-1.236-1.964-3.345-3.127-5.673-3.2h-.509c-2.327.073-4.436 1.236-5.673 3.2l-.073.145H7.961l.145-.291c.436-1.018 1.091-1.818 1.964-2.545.727-.582 1.527-1.164 2.4-1.527a5.857 5.857 0 0 1-2.109-2.109c-.582-1.018-.945-2.109-.945-3.273a6.737 6.737 0 0 1 6.473-6.473c3.709-.145 6.764 2.764 6.909 6.473 0 1.164-.291 2.327-.945 3.273-.509.873-1.236 1.527-2.109 2.109.873.364 1.673.945 2.4 1.527.8.727 1.455 1.527 1.964 2.545l.145.291h-2.327z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 6
+        }
+      }))
+    );
+  };
+
+  exports.default = AddressBooks2;
+},694,[118,617],"src\\static\\svg\\AddressBooks2.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
   });
-},694,[118,179,12,493,616],"src\\page\\drawer.js");
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\IdentityCheck.js";
+
+  var _react = _require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
+
+  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var IdentityCheck = function IdentityCheck(props) {
+    return _react2.default.createElement(
+      _reactNativeSvg2.default,
+      _extends({}, props, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 4
+        }
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M19.561 16.979c2.538.756 4.375 2.207 6.136 4.193.203.227.497.37.824.37h.009c.259 0 .083-.088.292-.27a1.094 1.094 0 0 0 .099-1.552l.001.001a16.412 16.412 0 0 0-5.836-4.214l-.107-.04a7.84 7.84 0 0 0 2.693-5.92l-.001-.123v.006c0-4.53-2.704-8.232-7.89-8.326A8.03 8.03 0 0 0 7.45 9.445V9.43c.044 2.444.855 4.53 2.566 6.036C4.306 17.888.311 23.317.003 29.714l-.001.037-.001.045c0 .594.47 1.079 1.058 1.103h.052c.585 0 .64-.458.668-1.048.265-5.998 3.895-11.173 9.683-12.884a.51.51 0 0 0 .086-.029l-.003.001a12.32 12.32 0 0 0 3.767.815l.034.002a14.732 14.732 0 0 0 4.213-.849l-.103.032c.03.015.064.028.101.038l.004.001zM9.21 9.211a6.359 6.359 0 1 1 12.718 0c0 3.504-2.853 6.798-6.362 6.798S9.21 12.715 9.21 9.211zM31.677 20.56c-.436-.43-.999.27-1.429.701l-7.89 7.449-3.509-3.504c-.43-.43-1.264-1.142-1.694-.712a1.085 1.085 0 0 0 0 1.556l4.497 4.469c.202.198.478.32.783.32.305-.002.581-.124.784-.32l8.458-8.403a1.097 1.097 0 0 0 0-1.556z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5
+        }
+      }))
+    );
+  };
+
+  exports.default = IdentityCheck;
+},695,[118,617],"src\\static\\svg\\IdentityCheck.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\Bms.js";
+
+  var _react = _require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
+
+  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var Bms = function Bms(props) {
+    return _react2.default.createElement(
+      _reactNativeSvg2.default,
+      _extends({
+        width: 32,
+        height: 32
+      }, props, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 4
+        }
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M16 0C7.163 0 0 7.163 0 16s7.163 16 16 16 16-7.163 16-16S24.837 0 16 0zm7.744 14.962a.365.365 0 0 1-.338.226v-.005h-.004a.352.352 0 0 1-.252-.105l-6.839-6.005a.448.448 0 0 0-.624 0L8.85 15.078c-.065.067-.156.108-.257.108s-.192-.041-.257-.108a.37.37 0 0 1-.002-.519l6.841-6.002c.213-.207.503-.334.824-.334s.611.127.824.335l6.841 6.002a.367.367 0 0 1 .079.405l.001-.002zm-7.758-.791c.999.02 1.806.818 1.84 1.812v.702h.457c.379 0 .686.307.686.686v2.517a.686.686 0 0 1-.686.686h-4.569a.686.686 0 0 1-.686-.686v-2.517c0-.379.307-.686.686-.686h.457v-.704-.015c0-.991.804-1.795 1.795-1.795h.021-.001zm1.383 1.815a1.426 1.426 0 0 0-1.381-1.358H15.97c-.741 0-1.342.601-1.342 1.342v.012-.001.704h2.741v-.699zm-3.883 1.385v2.517c0 .126.102.229.229.229h4.569a.229.229 0 0 0 .229-.229v-2.517a.229.229 0 0 0-.229-.229h-3.849a.18.18 0 0 1-.069-.001h-.65a.229.229 0 0 0-.229.229zm2.514.695a.228.228 0 0 1 .226.219v.688a.229.229 0 1 1-.457.022l.001-.025v.001-.686a.228.228 0 0 1 .228-.219zm-5.531-2.829a.366.366 0 0 1 .363.366v6.8c0 .347.28.629.626.633h9.091a.63.63 0 0 0 .624-.631v-6.8a.363.363 0 1 1 .726 0v6.804c0 .749-.603 1.356-1.35 1.363h-9.091a1.363 1.363 0 0 1-1.353-1.364v-6.804-.002c0-.201.162-.364.363-.366z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5
+        }
+      }))
+    );
+  };
+
+  exports.default = Bms;
+},696,[118,617],"src\\static\\svg\\Bms.js");
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+  var _jsxFileName = "e:\\Test\\TODO\\todo\\src\\static\\svg\\Editor.js";
+
+  var _react = _require(_dependencyMap[0], "react");
+
+  var _react2 = _interopRequireDefault(_react);
+
+  var _reactNativeSvg = _require(_dependencyMap[1], "react-native-svg");
+
+  var _reactNativeSvg2 = _interopRequireDefault(_reactNativeSvg);
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var Editor = function Editor(props) {
+    return _react2.default.createElement(
+      _reactNativeSvg2.default,
+      _extends({
+        width: 32,
+        height: 32
+      }, props, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 4
+        }
+      }),
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M24.427 13.227L18.88 7.68c-.213-.213-.64-.213-.96 0L7.573 18.027v5.867c-.107.427.107.64.533.64h5.867L24.32 14.187c.32-.32.32-.747.107-.96zm-6.08-4.267l1.813 1.813-9.28 9.28-1.813-1.813 9.28-9.28zm-9.6 14.4v-3.307l3.413 3.413H8.747v-.107zm4.906-.427L11.84 21.12l9.28-9.28 1.813 1.813-9.28 9.28z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 5
+        }
+      })),
+      _react2.default.createElement(_reactNativeSvg.Path, _extends({}, props, {
+        d: "M16 0C7.147 0 0 7.147 0 16s7.147 16 16 16 16-7.147 16-16S24.853 0 16 0zm0 30.72C7.893 30.72 1.28 24.107 1.28 16S7.893 1.28 16 1.28 30.72 7.893 30.72 16 24.107 30.72 16 30.72z",
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9
+        }
+      }))
+    );
+  };
+
+  exports.default = Editor;
+},697,[118,617],"src\\static\\svg\\Editor.js");
 require(44);
 require(11);
 //# sourceMappingURL=index.map

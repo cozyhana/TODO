@@ -18,6 +18,7 @@ export class Chat extends React.Component {
           title="drawer"
           onPress={() => navigation.navigate('Drawer')}
         />
+        <Text> navigation.state.params.name: {navigation.state.params ? navigation.state.params.name : null}  </Text>
       </View>
     );
   }

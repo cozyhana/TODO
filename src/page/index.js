@@ -5,3 +5,5 @@ export * from './about';
 export * from './chat';
 export * from './webScene';
 export * from './drawer';
+export * from './setParam';
+export * from './authLoading';
